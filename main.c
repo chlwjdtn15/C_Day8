@@ -5,11 +5,23 @@
 #include <stdio.h>
 
 
-void change(int* a){
+// void change(int* a){
 
-  *a = 50;
+//   *a = 50;
+// }
+
+
+void change (int* a, int* b) {
+
+int q = *a;
+int w = *b;
+
+
+*a = w;
+*b = q;
+  
+
 }
-
 
 
 int main(void) {
@@ -39,20 +51,32 @@ int main(void) {
   
 
 
-  // 문제 : 원본값을 훼손하는 change 함수를 만들어주세요.
+  // // 문제 : 원본값을 훼손하는 change 함수를 만들어주세요.
 
-  int x = 20;
-  printf("x의 주소값 : %ld\n", (long)&x);
+  // int x = 20;
+  // printf("x의 주소값 : %ld\n", (long)&x);
 
-  printf("change 함수 호출하기 전의 x : %d\n", x);
+  // printf("change 함수 호출하기 전의 x : %d\n", x);
 
 
-  change(&x); //이부분만 수정 가능
+  // change(&x); //이부분만 수정 가능
 
   
   
-  printf("change 함수 호출한 후의 x : %d\n", x);
-  // 출력 => change 함수 호출한 후의 x : 50
+  // printf("change 함수 호출한 후의 x : %d\n", x);
+  // // 출력 => change 함수 호출한 후의 x : 50
+
+
+  // 문제 : 값을 교체하는 change 함수를 만들어주세요.
+  int a = 10;
+  int b = 20;
+
+  printf("change 함수 호출하기 전의 a : %d, b :%d\n", a, b);
+
+  change(&a, &b); // 이부분 수정 가능
+
+  printf("change 함수 호출한 후의 a : %d, b :%d\n", a, b);
+  // 출력 => change 함수 호출한 후의 a : 20, b : 10
 
 
   return 0;

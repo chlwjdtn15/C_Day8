@@ -26,10 +26,10 @@
 
 
 
-void change3(int** pa) {
+void change3(int** pa) { //고로 x의 값에 접근하려면 포인터를 두개써서 심층으로 들어가야함.
   
 
-  **pa = 50;
+  **pa = 50; //첫번재 포인터는 x의 주소를 가지고있는 p의 값 = 쓰레기. 두번쨰는 심층에 있는 x의 주소에 있는 x 값.
 
 
 }
@@ -97,15 +97,15 @@ int main(void) {
 
 
   int x = 20;
-  int* p = &x;
+  int* p = &x; //p는 x의 주소값을 저장. 주소값 p == x
   
   printf("change 함수 호출하기 전의 x : %d\n", x);
 
-
+  //&p = x의 주소값을 가진 값의 주소값. 거의 (&p(&x)). 하지만 값 20은 x의 주소값안에 있음.
   printf("p: %ld\n", (long)p);
   printf("&p: %ld\n", (long)&p);
 
-  change3(&p);
+  change3(&p); //x의 주소값을 가진 주소값을 넘기기. 값은 x의 20이지만 p값은 아님.
 
   printf("change 함수 호출한 후의 x : %d\n", x);
   // 출력 => change 함수 호출한 후의 x : 50

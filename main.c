@@ -5,23 +5,36 @@
 #include <stdio.h>
 
 
-// void change(int* a){
+// void change1(int* a){
 
 //   *a = 50;
 // }
 
 
-void change (int* a, int* b) {
+// void change2 (int* a, int* b) {
 
-int q = *a;
-int w = *b;
+// int q = *a; //q = 60
+// int w = *b; //w = 70
 
 
-*a = w;
-*b = q;
+// *a = w;
+// *b = q;
   
 
+// }
+
+
+
+
+void change3(int** pa) {
+  
+
+  **pa = 50;
+
+
 }
+
+
 
 
 int main(void) {
@@ -59,7 +72,7 @@ int main(void) {
   // printf("change 함수 호출하기 전의 x : %d\n", x);
 
 
-  // change(&x); //이부분만 수정 가능
+  // change1(&x); //이부분만 수정 가능
 
   
   
@@ -67,16 +80,36 @@ int main(void) {
   // // 출력 => change 함수 호출한 후의 x : 50
 
 
-  // 문제 : 값을 교체하는 change 함수를 만들어주세요.
-  int a = 60;
-  int b = 70;
+  // // 문제 : 값을 교체하는 change 함수를 만들어주세요.
+  // int a = 10;
+  // int b = 20;
 
-  printf("change 함수 호출하기 전의 a : %d, b :%d\n", a, b);
+  // printf("change 함수 호출하기 전의 a : %d, b :%d\n", a, b);
 
-  change(&a, &b); // 이부분 수정 가능
+  // change2(&a, &b); // 이부분 수정 가능
 
-  printf("change 함수 호출한 후의 a : %d, b :%d\n", a, b);
-  // 출력 => change 함수 호출한 후의 a : 20, b : 10
+  // printf("change 함수 호출한 후의 a : %d, b :%d\n", a, b);
+  // // 출력 => change 함수 호출한 후의 a : 20, b : 10
+
+
+
+  // 문제 : 원본값을 훼손하는 change 함수를 만들어주세요.(2중포인터)
+
+
+  int x = 20;
+  int* p = &x;
+  
+  printf("change 함수 호출하기 전의 x : %d\n", x);
+
+
+  printf("p: %ld\n", (long)p);
+  printf("&p: %ld\n", (long)&p);
+
+  change3(&p);
+
+  printf("change 함수 호출한 후의 x : %d\n", x);
+  // 출력 => change 함수 호출한 후의 x : 50
+
 
 
   return 0;

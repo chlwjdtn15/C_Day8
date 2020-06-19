@@ -68,8 +68,8 @@ int main(void) {
 
 
   // 문제 : 값을 교체하는 change 함수를 만들어주세요.
-  int a = 10;
-  int b = 20;
+  int a = 60;
+  int b = 70;
 
   printf("change 함수 호출하기 전의 a : %d, b :%d\n", a, b);
 
